@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Aniversário de 14 Anos — Levi | 18 de Outubro</title>
+  <meta name="description" content="Você está convidado para o aniversário de 14 anos do Levi! Churrasco, cama elástica, bolo e muita música no dia 18 de outubro. Confirme sua presença!" />
+  <meta property="og:title" content="🎉 Aniversário de 14 Anos — Levi" />
+  <meta property="og:description" content="18 de outubro | Das 10h às 18h | Churrasco, cama elástica, bolo e música!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Paleta fria e minimalista */
+      --dark:    #080d14;
+      --dark-2:  #0e1520;
+      --dark-3:  #141e2b;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+      --text-primary: #f0f4f8;
+      --text-secondary: rgba(240,244,248,0.6);
+      --text-muted: rgba(240,244,248,0.35);
+      /* Cores de destaque (usadas com moderação) */
+      --accent-blue:  #3b82f6;
+      --accent-green: #10b981;
+      --accent-cyan:  #06b6d4;
+      --accent-purple:#7c3aed;
+      --accent-pink:  #ec4899;
+      --radius: 18px; --radius-sm: 10px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.5);
+      --glow-blue:  0 0 36px rgba(59,130,246,0.35);
+      --glow-green: 0 0 36px rgba(16,185,129,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family:'Outfit',sans-serif; background:var(--dark); color:var(--text-primary); line-height:1.6; overflow-x:hidden; }
+
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--dark-2)}::-webkit-scrollbar-thumb{background:var(--accent-blue);border-radius:3px}
+
+    .confetti-wrap{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+    .confetti-dot{position:absolute;border-radius:2px;opacity:0;animation:fall linear infinite}
+    @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:.8}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+    .container{max-width:900px;margin:0 auto;padding:0 24px}
+
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;z-index:1}
+    .hero-bg{position:absolute;inset:0;background-image:url('public/hero-bg.jpg');background-size:cover;background-position:center top}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,13,20,.4) 0%,rgba(8,13,20,.2) 40%,rgba(8,13,20,.88) 82%,rgba(8,13,20,1) 100%)}
+    .hero-content{position:relative;z-index:2;padding:40px 20px}
+
+    .hero-badge{display:inline-block;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.4);color:#93c5fd;font-size:.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:8px 22px;border-radius:50px;margin-bottom:28px;animation:fadeInDown .8s ease forwards;backdrop-filter:blur(8px)}
+    .hero-age{font-family:'Pacifico',cursive;font-size:clamp(5rem,15vw,10rem);background:linear-gradient(135deg,#ffffff,#f3f4f6,#9ca3af);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 40px rgba(255,255,255,0.7));animation:fadeInUp .8s ease .2s forwards;opacity:0}
+    .hero-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;margin-top:8px;margin-bottom:20px;animation:fadeInUp .8s ease .4s forwards;opacity:0;color:#f0f4f8}
+    .hero-title span{background:linear-gradient(90deg,#38bdf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-cta{display:inline-block;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));color:#fff;text-decoration:none;font-size:1rem;font-weight:700;padding:16px 44px;border-radius:50px;box-shadow:var(--glow-blue);transition:transform .2s,box-shadow .2s;animation:fadeInUp .8s ease .6s forwards;opacity:0}
+    .hero-cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--glow-green)}
+
+    section{position:relative;z-index:1;padding:80px 0}
+    .section-label{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:12px}
+    .section-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;margin-bottom:40px}
+    .section-header{text-align:center;margin-bottom:40px}
+
+    .info-section{background:var(--dark-2)}
+    .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .info-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px 24px;text-align:center;backdrop-filter:blur(10px);transition:transform .3s,box-shadow .3s,border-color .3s}
+    .info-card:hover{transform:translateY(-6px);box-shadow:var(--glow-blue);border-color:rgba(59,130,246,0.5)}
+    .info-icon{font-size:2.5rem;margin-bottom:14px;display:block}
+    .info-card h3{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px}
+    .info-card p{font-size:1rem;font-weight:600;color:var(--text-primary)}
+    .info-card p small{display:block;font-size:.85rem;font-weight:400;color:var(--text-secondary);margin-top:4px}
+
+    /* Bloco de mensagem pessoal */
+    .personal-msg{display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(16,185,129,0.12));border:1px solid rgba(59,130,246,0.3);border-radius:var(--radius);padding:22px 28px;margin-top:36px;position:relative;overflow:hidden}
+    .personal-msg::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(59,130,246,0.06),transparent);pointer-events:none}
+    .personal-msg-text{flex:1}
+    .personal-msg-text span{font-size:1.05rem;font-weight:600;color:var(--text-primary);line-height:1.5}
+
+    .activities-wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+    .activity-chip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--text-primary);padding:10px 22px;border-radius:50px;font-size:.92rem;font-weight:500;transition:transform .2s,background .2s,border-color .2s}
+    .activity-chip:hover{transform:scale(1.05);background:rgba(59,130,246,0.12);border-color:rgba(59,130,246,0.4)}
+
+    .map-section{background:var(--dark-3)}
+    .map-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow)}
+    .map-wrap iframe{width:100%;height:380px;display:block;filter:grayscale(20%) contrast(1.05);border:none}
+    .map-address{background:var(--card-bg);border:1px solid var(--card-border);backdrop-filter:blur(10px);border-radius:var(--radius-sm);padding:16px 20px;margin-top:16px;display:flex;align-items:center;gap:12px}
+    .map-address .pin{font-size:1.5rem}
+    .map-address p{font-size:.95rem;color:var(--text-secondary)}
+    .map-address strong{color:var(--text-primary)}
+
+    .rsvp-section{background:var(--dark-2)}
+    .rsvp-grid{display:grid;grid-template-columns:7fr 3fr;gap:24px;align-items:start}
+    @media(max-width:720px){.rsvp-grid{gap:12px;}}
+
+    .rsvp-form-wrap,.guest-list-wrap{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);padding:36px 30px;backdrop-filter:blur(10px)}
+    @media(max-width:720px){.rsvp-form-wrap,.guest-list-wrap{padding:20px 16px;}}
+    .rsvp-form-wrap h3,.guest-list-header h3{font-size:1.3rem;font-weight:700;margin-bottom:6px}
+    @media(max-width:720px){.rsvp-form-wrap h3,.guest-list-header h3{font-size:1.1rem;margin-bottom:4px;}}
+    .rsvp-form-wrap>p{color:var(--text-secondary);font-size:.9rem;margin-bottom:28px}
+    @media(max-width:720px){.rsvp-form-wrap>p{font-size:0.8rem;margin-bottom:16px;}}
+
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+    .form-group input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-sm);padding:14px 18px;color:var(--text-primary);font-family:'Outfit',sans-serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s}
+    .form-group input::placeholder{color:var(--text-muted)}
+    .form-group input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+    .form-group input.error-input{border-color:#f43f5e}
+
+    .form-submit{width:100%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));color:#fff;border:none;border-radius:var(--radius-sm);padding:16px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s,opacity .2s;margin-top:8px}
+    .form-submit:hover{transform:translateY(-2px);box-shadow:var(--glow-blue)}
+    .form-submit:active{transform:scale(.98)}
+    .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+    .form-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--radius-sm);font-size:.9rem;font-weight:500;text-align:center;display:none}
+    .form-feedback.success{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);color:#4ade80;display:block}
+    .form-feedback.error-fb{background:rgba(244,63,94,.15);border:1px solid rgba(244,63,94,.35);color:#fb7185;display:block}
+
+    .guest-list-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .guest-count-badge{background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));color:#fff;font-size:.85rem;font-weight:700;padding:4px 12px;border-radius:50px;min-width:32px;text-align:center}
+    .guest-list{list-style:none;display:flex;flex-direction:column;gap:10px;max-height:380px;overflow-y:auto;padding-right:4px}
+    .guest-list::-webkit-scrollbar{width:4px}
+    .guest-list::-webkit-scrollbar-thumb{background:rgba(59,130,246,.4);border-radius:2px}
+    .guest-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius-sm);padding:12px 16px;animation:slideIn .4s ease forwards}
+    .guest-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-green));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+    .guest-item-info{flex:1;min-width:0}
+    .guest-name{font-weight:600;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .guest-confirmed{font-size:.75rem;color:#4ade80;font-weight:500}
+    .guest-check{font-size:1.1rem;flex-shrink:0}
+    .guest-list-empty{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.95rem}
+    .guest-list-empty .empty-icon{font-size:2.5rem;margin-bottom:10px;display:block}
+
+    .footer{background:var(--dark);border-top:1px solid var(--card-border);text-align:center;padding:32px 20px;color:var(--text-muted);font-size:.9rem}
+    .footer strong{color:var(--accent-cyan)}
+
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .gradient-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,0.5),rgba(16,185,129,0.5),transparent);border:none}
+  </style>
+</head>
+<body>
+
+<div class="confetti-wrap" id="confetti-wrap" aria-hidden="true"></div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Convite de aniversário">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎂 Você está convidado</div>
+    <div class="hero-age">14</div>
+    <h1 class="hero-title">Anos do <span>Levi!</span></h1>
+    <a href="#confirmar" class="hero-cta" id="hero-rsvp-btn">🎟️ Confirmar Presença</a>
+  </div>
+</section>
+
+<hr class="gradient-divider" />
+
+<!-- INFORMAÇÕES -->
+<section class="info-section" id="info" aria-label="Informações do evento">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">📋 O evento</span>
+      <h2 class="section-title" style="margin-bottom:0">Todos os detalhes</h2>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <span class="info-icon">📅</span>
+        <h3>Data</h3>
+        <p>18 de Outubro<small>Domingo</small></p>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🕙</span>
+        <h3>Horário</h3>
+        <p>10h às 18h<small>8 horas de festa!</small></p>
+      </div>
+      <a href="#local" class="info-card" style="text-decoration:none; display:block">
+        <span class="info-icon">📍</span>
+        <h3>Local</h3>
+        <p>Casa do Vô<small>Clique para ver o mapa</small></p>
+      </a>
+    </div>
+
+    <!-- Bloco de mensagem pessoal destacado -->
+    <div class="personal-msg reveal">
+      <div class="personal-msg-text">
+        <span>Este site foi feito por mim especialmente para te convidar. Sua presença faz toda a diferença nesse dia!</span>
+      </div>
+    </div>
+    <div class="section-header reveal" style="margin-top:52px">
+      <span class="section-label">🎡 Atividades</span>
+      <h2 class="section-title">O que vai ter?</h2>
+      <div class="activities-wrap">
+        <div class="activity-chip">🔥 Churrasco</div>
+        <div class="activity-chip">🤸 Cama Elástica</div>
+        <div class="activity-chip">🎂 Bolo de Aniversário</div>
+        <div class="activity-chip">🎵 Música</div>
+        <div class="activity-chip">🎉 Muita Diversão</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gradient-divider" />
+
+<!-- LOCALIZAÇÃO -->
+<section class="map-section" id="local" aria-label="Localização do evento">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">📍 Localização</span>
+      <h2 class="section-title" style="margin-bottom:0">Como chegar lá</h2>
+    </div>
+    <div class="reveal">
+      <div class="map-wrap">
+        <iframe
+          id="google-maps-embed"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d361.90721737060926!2d-48.057777177606596!3d-15.873375514917367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1790972590599!5m2!1spt-BR!2sbr"
+          title="Localização da festa de aniversário"
+          allowfullscreen loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+      <div class="map-address">
+        <span class="pin">📌</span>
+        <p>
+          <strong>Casa do Vô</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gradient-divider" />
+
+<!-- RSVP -->
+<section class="rsvp-section" id="confirmar" aria-label="Confirmar presença">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">✅ Lista de presença</span>
+      <h2 class="section-title" style="margin-bottom:0">Vai comparecer?</h2>
+    </div>
+    <div class="rsvp-grid">
+
+      <!-- Formulário -->
+      <div class="rsvp-form-wrap reveal">
+        <h3>✍️ Confirme sua presença</h3>
+        <p>Preencha seu nome e entre para a lista de confirmados!</p>
+        <form id="rsvp-form" novalidate>
+          <div class="form-group">
+            <label for="guest-name">Seu nome completo</label>
+            <input type="text" id="guest-name" name="guest-name"
+              placeholder="Ex: João Silva"
+              autocomplete="name" maxlength="60"
+              aria-required="true" aria-describedby="form-feedback" />
+          </div>
+          <button type="submit" class="form-submit" id="rsvp-submit-btn">
+            🎉 Confirmar Presença!
+          </button>
+          <div class="form-feedback" id="form-feedback" role="alert"></div>
+        </form>
+      </div>
+
+      <!-- Lista -->
+      <div class="guest-list-wrap reveal">
+        <div class="guest-list-header">
+          <h3>👥 Confirmados</h3>
+          <span class="guest-count-badge" id="guest-count">0</span>
+        </div>
+        <ul class="guest-list" id="guest-list" aria-label="Lista de presença confirmada">
+          <li class="guest-list-empty" id="empty-msg">
+            <span class="empty-icon">🙈</span>
+            Ninguém confirmou ainda. Seja o primeiro!
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Feito com ❤️ para celebrar os <strong>14 anos do Levi</strong> &nbsp;·&nbsp; 18 de outubro de 2026</p>
+</footer>
+
+<script>
+  /* ══════════════════════════════════════════════════
+     ⚠️ COLE AQUI A URL DO SEU WEB APP (Apps Script)
+     Após publicar o script, substitua o valor abaixo
+  ══════════════════════════════════════════════════ */
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzM6deIo0BfqbLlYgQkU6OEptNg_GvB81aY5TEpRt0SUfgnuAH4GkProXi1bid3YVwr/exec';
+
+  /* ─── Confeti ─── */
+  (function(){
+    const colors=['#f0f4f8','#e2e8f0','#cbd5e1','#94a3b8','#38bdf8','#3b82f6','#34d399','#10b981'];
+    const wrap=document.getElementById('confetti-wrap');
+    for(let i=0;i<35;i++){
+      const d=document.createElement('div');d.className='confetti-dot';
+      const s=(6+Math.random()*8)+'px';
+      Object.assign(d.style,{left:(Math.random()*100)+'%',width:s,height:s,
+        backgroundColor:colors[i%colors.length],
+        animationDelay:(Math.random()*8)+'s',
+        animationDuration:(6+Math.random()*8)+'s'});
+      wrap.appendChild(d);
+    }
+  })();
+
+  /* ─── Scroll Reveal ─── */
+  (function(){
+    const obs=new IntersectionObserver(
+      entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),
+      {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  })();
+
+  /* ─── Helpers ─── */
+  function getInitials(n){return n.trim().split(/\s+/).slice(0,2).map(w=>w[0]?.toUpperCase()||'').join('')}
+  function formatDate(iso){
+    if(!iso) return '';
+    try{return new Date(iso).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});}
+    catch{return '';}
+  }
+  function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+  /* ─── Estado da lista (cache local) ─── */
+  let guests = [];
+
+  /* ─── Renderizar lista de convidados ─── */
+  function renderGuests(list_data){
+    guests = list_data;
+    const list  = document.getElementById('guest-list');
+    const count = document.getElementById('guest-count');
+    const empty = document.getElementById('empty-msg');
+    count.textContent = guests.length;
+    Array.from(list.children).forEach(c=>{ if(c.id!=='empty-msg') c.remove(); });
+    if(guests.length===0){ empty.style.display=''; return; }
+    empty.style.display='none';
+    guests.forEach(g=>{
+      const li=document.createElement('li');
+      li.className='guest-item';
+      li.innerHTML=`
+        <div class="guest-avatar" aria-hidden="true">${getInitials(g.name)}</div>
+        <div class="guest-item-info">
+          <div class="guest-name">${escapeHtml(g.name)}</div>
+          <div class="guest-confirmed">✓ Confirmado em ${formatDate(g.confirmedAt)}</div>
+        </div>
+        <span class="guest-check" aria-hidden="true">✅</span>`;
+      list.appendChild(li);
+    });
+  }
+
+  /* ─── Feedback visual ─── */
+  function showFeedback(type,msg){
+    const fb=document.getElementById('form-feedback');
+    fb.className='form-feedback '+(type==='success'?'success':'error-fb');
+    fb.textContent=msg;
+  }
+  function clearFeedback(){
+    const fb=document.getElementById('form-feedback');
+    fb.className='form-feedback'; fb.textContent='';
+  }
+
+  /* ─── Mostrar estado de loading na lista ─── */
+  function setListLoading(on){
+    const count=document.getElementById('guest-count');
+    const empty=document.getElementById('empty-msg');
+    if(on){
+      count.textContent='...';
+      const list=document.getElementById('guest-list');
+      Array.from(list.children).forEach(c=>{ if(c.id!=='empty-msg') c.remove(); });
+      empty.style.display='';
+      empty.querySelector('.empty-icon').textContent='⏳';
+      empty.querySelector('span + br, span + text, span').nextSibling
+      empty.lastChild.textContent=' ';
+      empty.innerHTML='<span class="empty-icon">⏳</span>Carregando lista da planilha...';
+    }
+  }
+
+  /* ══════════════════════════════════════════════════
+     GOOGLE SHEETS — Carregar lista via JSONP
+     (JSONP resolve o problema de CORS no HTML puro)
+  ══════════════════════════════════════════════════ */
+  function loadFromSheets(){
+    if(!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_WEB_APP'){
+      // Modo offline: lista vazia
+      renderGuests([]);
+      return;
+    }
+
+    setListLoading(true);
+
+    const callbackName = '__rsvpCallback_' + Date.now();
+    const script = document.createElement('script');
+    let done = false;
+
+    // Timeout de segurança (5s)
+    const timeout = setTimeout(()=>{
+      if(done) return;
+      done=true;
+      cleanup();
+      renderGuests([]);
+      console.warn('Timeout ao carregar lista da planilha');
+    }, 5000);
+
+    window[callbackName] = function(data){
+      if(done) return;
+      done=true;
+      cleanup();
+      clearTimeout(timeout);
+      if(data && data.success && Array.isArray(data.guests)){
+        renderGuests(data.guests.reverse()); // mais recentes primeiro
+      } else {
+        renderGuests([]);
+      }
+    };
+
+    function cleanup(){
+      delete window[callbackName];
+      if(script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    script.onerror = ()=>{
+      if(done) return;
+      done=true; cleanup(); clearTimeout(timeout);
+      renderGuests([]);
+      console.warn('Erro ao carregar planilha. Verifique a URL do Web App.');
+    };
+
+    script.src = APPS_SCRIPT_URL + '?callback=' + callbackName + '&t=' + Date.now();
+    document.head.appendChild(script);
+  }
+
+  /* ══════════════════════════════════════════════════
+     GOOGLE SHEETS — Salvar convidado via POST
+  ══════════════════════════════════════════════════ */
+  function saveToSheets(name, confirmedAt){
+    if(!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_WEB_APP'){
+      return Promise.resolve({ success: true, offline: true });
+    }
+    return fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // necessário por restrições do Apps Script
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, confirmedAt: confirmedAt })
+    }).then(()=>({ success: true }))
+      .catch(err=>({ success: false, error: err.message }));
+  }
+
+  /* ─── Formulário de RSVP ─── */
+  const form    = document.getElementById('rsvp-form');
+  const nameInp = document.getElementById('guest-name');
+  const btn     = document.getElementById('rsvp-submit-btn');
+
+  nameInp.addEventListener('input',()=>{ nameInp.classList.remove('error-input'); clearFeedback(); });
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const trimmed = nameInp.value.trim();
+
+    if(!trimmed || trimmed.length < 2){
+      nameInp.classList.add('error-input');
+      showFeedback('error','⚠️ Por favor, informe seu nome completo.');
+      return;
+    }
+
+    // Verifica duplicata no cache local
+    if(guests.some(g=> g.name.toLowerCase() === trimmed.toLowerCase())){
+      showFeedback('error', `"${trimmed}" já confirmou presença! 🎉`);
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Confirmando... ⏳';
+
+    const confirmedAt = new Date().toISOString();
+
+    // Salva na planilha
+    await saveToSheets(trimmed, confirmedAt);
+
+    // Atualiza lista local imediatamente (UX otimista)
+    const newGuest = { name: trimmed, confirmedAt: confirmedAt };
+    renderGuests([newGuest, ...guests]);
+
+    nameInp.value = '';
+    nameInp.classList.remove('error-input');
+    showFeedback('success', `Arrasou, ${trimmed}! Você está na lista! 🎊`);
+    btn.disabled = false;
+    btn.textContent = '🎉 Confirmar Presença!';
+
+    // Recarrega a lista da planilha após 2s para garantir sincronia
+    setTimeout(loadFromSheets, 2000);
+  });
+
+  /* ─── Inicialização ─── */
+  loadFromSheets();
+</script>
+</body>
+</html>
